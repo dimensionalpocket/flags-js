@@ -31,6 +31,13 @@ describe('Flags', function () {
       expect(flags.check(FLAG_ONE)).to.eq(true)
       expect(flags.check(FLAG_TWO)).to.eq(true)
       expect(flags.check(FLAG_THREE)).to.eq(true)
+
+      // Repeated calls shouldn't change other flags
+      flags.enable(FLAG_TWO)
+
+      expect(flags.check(FLAG_ONE)).to.eq(true)
+      expect(flags.check(FLAG_TWO)).to.eq(true)
+      expect(flags.check(FLAG_THREE)).to.eq(true)
     })
   })
 
@@ -46,6 +53,13 @@ describe('Flags', function () {
       expect(flags.check(FLAG_TWO)).to.eq(true)
       expect(flags.check(FLAG_THREE)).to.eq(true)
 
+      flags.disable(FLAG_TWO)
+
+      expect(flags.check(FLAG_ONE)).to.eq(true)
+      expect(flags.check(FLAG_TWO)).to.eq(false)
+      expect(flags.check(FLAG_THREE)).to.eq(true)
+
+      // Disable again
       flags.disable(FLAG_TWO)
 
       expect(flags.check(FLAG_ONE)).to.eq(true)
