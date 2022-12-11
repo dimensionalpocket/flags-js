@@ -109,7 +109,7 @@ describe('Flags', function () {
       flags.enable(FLAG_TWO)
       flags.enable(FLAG_FOUR)
 
-      var expectation = new Int32Array([FLAG_TWO, FLAG_FOUR])
+      var expectation = new Uint32Array([FLAG_TWO, FLAG_FOUR])
 
       expect(flags.list()).to.eql(expectation)
       expect(flags.list()).to.eql(expectation) // cache hit
@@ -118,7 +118,7 @@ describe('Flags', function () {
     it('returns an empty array when value is zero', function () {
       const flags = new Flags()
 
-      var expectation = new Int32Array()
+      var expectation = new Uint32Array()
 
       expect(flags.list()).to.eql(expectation)
       expect(flags.list()).to.eql(expectation) // cache hit

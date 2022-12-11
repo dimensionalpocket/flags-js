@@ -1,7 +1,7 @@
 /**
  * Cached arrays of powers of two indexed by sum.
  *
- * @type {Map<number,Int32Array>}
+ * @type {Map<number,Uint32Array>}
  */
 const cachedLists = new Map()
 
@@ -48,7 +48,7 @@ export class Flags {
   /**
    * Returns the powers of two that sum up to the current value.
    *
-   * @returns {Int32Array}
+   * @returns {Uint32Array}
    */
   list () {
     const value = this.value
@@ -66,7 +66,7 @@ export class Flags {
     }
 
     // Atomically creates the cache copy as a fixed size and typed array.
-    const cached = new Int32Array(powers)
+    const cached = new Uint32Array(powers)
 
     cachedLists.set(value, cached)
 

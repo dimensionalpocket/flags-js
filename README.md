@@ -18,14 +18,22 @@ const FLAG_THREE = 4
 const flags = new Flags()
 
 flags.check(FLAG_ONE) // => false
+
 flags.enable(FLAG_ONE)
 flags.check(FLAG_ONE) // => true
+
 flags.disable(FLAG_ONE)
 flags.check(FLAG_ONE) // => false
 
 flags.check(FLAG_TWO) // => false
 flags.enable(FLAG_TWO)
 flags.check(FLAG_TWO) // => true
+flags.enable(FLAG_THREE)
+flags.list() // => [2, 4]
+
+// Activate or deactivate multiple flags at once by sending sums
+flags.enable(FLAG_ONE + FLAG_TWO)
+flags.disable(FLAG_TWO + FLAG_THREE)
 ```
 
 ## License
