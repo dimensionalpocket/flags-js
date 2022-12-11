@@ -1,6 +1,6 @@
 # @dimensionalpocket/flags
 
-[![build](https://github.com/dimensionalpocket/flags-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimensionalpocket/flags-js/actions/workflows/node.js.yml) [![Total alerts](https://img.shields.io/lgtm/alerts/g/dimensionalpocket/flags-js.svg)](https://lgtm.com/projects/g/dimensionalpocket/flags-js/alerts/) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/dimensionalpocket/flags-js.svg)](https://lgtm.com/projects/g/dimensionalpocket/flags-js/context:javascript)
+[![build](https://github.com/dimensionalpocket/flags-js/actions/workflows/node.js.yml/badge.svg)](https://github.com/dimensionalpocket/flags-js/actions/workflows/node.js.yml)
 
 Bitwise flag management for Javascript.
 
