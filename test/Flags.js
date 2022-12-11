@@ -5,6 +5,7 @@ describe('Flags', function () {
   const FLAG_ONE = 1
   const FLAG_TWO = 2
   const FLAG_THREE = 4
+  const FLAG_FOUR = 8
 
   describe('#enable', function () {
     it('enables a flag', function () {
@@ -37,6 +38,16 @@ describe('Flags', function () {
 
       expect(flags.check(FLAG_ONE)).to.eq(true)
       expect(flags.check(FLAG_TWO)).to.eq(true)
+      expect(flags.check(FLAG_THREE)).to.eq(true)
+    })
+
+    it('enables multiple flags via sum', function () {
+      const flags = new Flags()
+
+      flags.enable(FLAG_ONE + FLAG_THREE)
+
+      expect(flags.check(FLAG_ONE)).to.eq(true)
+      expect(flags.check(FLAG_TWO)).to.eq(false)
       expect(flags.check(FLAG_THREE)).to.eq(true)
     })
   })
@@ -77,6 +88,50 @@ describe('Flags', function () {
       expect(flags.check(FLAG_ONE)).to.eq(false)
       expect(flags.check(FLAG_TWO)).to.eq(false)
       expect(flags.check(FLAG_THREE)).to.eq(false)
+    })
+
+    it('disables multiple flags via sum', function () {
+      const flags = new Flags()
+
+      flags.enable(FLAG_ONE + FLAG_TWO + FLAG_THREE)
+      flags.disable(FLAG_TWO + FLAG_THREE)
+
+      expect(flags.check(FLAG_ONE)).to.eq(true)
+      expect(flags.check(FLAG_TWO)).to.eq(false)
+      expect(flags.check(FLAG_THREE)).to.eq(false)
+    })
+  })
+
+  describe('#list', function () {
+    it('returns the list of powers of two', function () {
+      const flags = new Flags()
+
+      flags.enable(FLAG_TWO)
+      flags.enable(FLAG_FOUR)
+
+      var expectation = new Uint32Array([FLAG_TWO, FLAG_FOUR])
+
+      expect(flags.list()).to.eql(expectation)
+      expect(flags.list()).to.eql(expectation) // cache hit
+    })
+
+    it('returns an empty array when value is zero', function () {
+      const flags = new Flags()
+
+      var expectation = new Uint32Array()
+
+      expect(flags.list()).to.eql(expectation)
+      expect(flags.list()).to.eql(expectation) // cache hit
+    })
+
+    it('returns an empty array when value is negative', function () {
+      const flags = new Flags()
+      flags.value = -123
+
+      var expectation = new Uint32Array()
+
+      expect(flags.list()).to.eql(expectation)
+      expect(flags.list()).to.eql(expectation) // cache hit
     })
   })
 })
