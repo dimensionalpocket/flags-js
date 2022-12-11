@@ -8,6 +8,8 @@ const cachedLists = new Map()
 export class Flags {
   constructor () {
     /**
+     * The sum of all active flags.
+     *
      * @type {number}
      */
     this.value = 0
@@ -15,6 +17,7 @@ export class Flags {
 
   /**
    * Activates a flag.
+   * Send a sum of flags to activate multiple at once.
    *
    * @param {number} flag
    */
@@ -24,6 +27,7 @@ export class Flags {
 
   /**
    * Deactivates a flag.
+   * Send a sum of flags to deactivate multiple at once.
    *
    * @param {number} flag
    */
