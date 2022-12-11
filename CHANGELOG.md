@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/dimensionalpocket/flags-js/compare/0.1.0...0.2.0) (2022-12-11)
+
+
+### Features
+
+* `Flag#list` to list powers of two of current value ([#5](https://github.com/dimensionalpocket/flags-js/issues/5)) ([3c0876d](https://github.com/dimensionalpocket/flags-js/commit/3c0876d0c2cf882540cfca876ce6acec8b60a11d))
+
 ## 0.1.0 (2022-09-12)
 
 
