@@ -5,6 +5,7 @@ describe('Flags', function () {
   const FLAG_ONE = 1
   const FLAG_TWO = 2
   const FLAG_THREE = 4
+  const FLAG_FOUR = 8
 
   describe('#enable', function () {
     it('enables a flag', function () {
@@ -77,6 +78,22 @@ describe('Flags', function () {
       expect(flags.check(FLAG_ONE)).to.eq(false)
       expect(flags.check(FLAG_TWO)).to.eq(false)
       expect(flags.check(FLAG_THREE)).to.eq(false)
+    })
+  })
+
+  describe('#list', function () {
+    it('returns the list of powers of two', function () {
+      const flags = new Flags()
+
+      flags.enable(FLAG_TWO)
+      flags.enable(FLAG_FOUR)
+
+      var expectation = new Int32Array([FLAG_TWO, FLAG_FOUR])
+
+      expect(flags.list()).to.eql(expectation)
+
+      // Call again to retrieve from cache
+      expect(flags.list()).to.eql(expectation)
     })
   })
 })
