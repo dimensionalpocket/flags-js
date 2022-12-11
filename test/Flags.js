@@ -123,5 +123,15 @@ describe('Flags', function () {
       expect(flags.list()).to.eql(expectation)
       expect(flags.list()).to.eql(expectation) // cache hit
     })
+
+    it('returns an empty array when value is negative', function () {
+      const flags = new Flags()
+      flags.value = -123
+
+      var expectation = new Uint32Array()
+
+      expect(flags.list()).to.eql(expectation)
+      expect(flags.list()).to.eql(expectation) // cache hit
+    })
   })
 })

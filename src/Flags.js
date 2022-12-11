@@ -51,7 +51,8 @@ export class Flags {
    * @returns {Uint32Array}
    */
   list () {
-    const value = this.value
+    var value = this.value
+    if (value < 0) value = 0
 
     // Hit cache first.
     const cachedList = cachedLists.get(value)
